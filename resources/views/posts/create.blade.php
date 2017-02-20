@@ -20,7 +20,10 @@
 	  <div class="form-group">
 	  	<button type="submit" class="btn btn-primary">Add New</button>
 	  </div>
-	</form>    
+	</form>
+	
+	@include('errors.form')
+	    
 
 
 </div><!-- /.blog-main -->

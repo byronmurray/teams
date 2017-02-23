@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    public function __contruct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index()
     {
-    	
-    	$posts = Post::latest()->get();
+        // query scope post model
+        $posts = Post::latest()
+            ->filter(request(['month', 'year']))
+            ->get();
 
     	return view('posts.index', compact('posts'));
     }
@@ -35,7 +45,12 @@ class PostController extends Controller
 
         ]);
 
-        Post::create($request->all());
+        auth()->user()->publish(
+
+            new Post(request(['title', 'body']))
+        );
+
+        
 
         return redirect('/');
     }

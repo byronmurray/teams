@@ -18,7 +18,7 @@ Route::post('posts', 'PostController@store');
 
 
 
-Route::get('/events', 'EventController@index');
+Route::get('/events', 'CalendarController@index');
 
 
 

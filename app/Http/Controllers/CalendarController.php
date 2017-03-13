@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\EventModel;
+use App\Event;
 use Illuminate\Http\Request;
 use MaddHatter\LaravelFullcalendar\Facasdes\Calendar;
 
@@ -23,7 +23,7 @@ class CalendarController extends Controller {
             ]
         );
 
-        //$eloquentEvent = EventModel::first(); //EventModel implements MaddHatter\LaravelFullcalendar\Event  
+        //$eloquentEvent = Event::first(); //EventModel implements MaddHatter\LaravelFullcalendar\Event  
 
         $calendar = \Calendar::addEvents($events) //add an array with addEvents
             ->setOptions([ //set fullcalendar options

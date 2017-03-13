@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EventModel extends Model implements \MaddHatter\LaravelFullcalendar\IdentifiableEvent
+class Event extends Model implements \MaddHatter\LaravelFullcalendar\IdentifiableEvent
 {
 
     protected $dates = ['start', 'end'];
